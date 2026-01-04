@@ -284,6 +284,18 @@ Contributions are welcome! Here's how you can help:
 - Update documentation for any changes
 - Make sure all tests pass before submitting a pull request
 
+### Publishing
+
+This package uses GitHub Actions for automated publishing to npm. The workflow can be triggered manually from the GitHub Actions tab:
+
+1. Go to the "Actions" tab in the GitHub repository
+2. Select the "Publish to npm" workflow
+3. Click "Run workflow"
+4. Optionally specify a new version (e.g., "patch", "minor", "major", or a specific version)
+5. Click "Run workflow" to start the publishing process
+
+Note: Publishing requires an NPM_TOKEN secret to be configured in the repository settings.
+
 ## License
 
 MIT
