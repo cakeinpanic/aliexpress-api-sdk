@@ -1,0 +1,22 @@
+{
+  "name": "aliexpress-api-sdk",
+  "version": "1.0.0",
+  "description": "Node.js SDK for AliExpress API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aliexpress",
+    "api",
+    "sdk"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "crypto": "^1.0.1",
+    "form-data": "^4.0.0",
+    "os": "^0.1.2"
+  }
+}
