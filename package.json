@@ -15,16 +15,16 @@
     "dropshipping"
   ],
   "author": {
-    "name": "AliExpress SDK Team"
+    "name": "cakeinpanic"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/username/aliexpress-api-sdk.git"
+    "url": "git+https://github.com/cakeinpanic/aliexpress-api-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/username/aliexpress-api-sdk/issues"
+    "url": "https://github.com/cakeinpanic/aliexpress-api-sdk/issues"
   },
-  "homepage": "https://github.com/username/aliexpress-api-sdk#readme",
+  "homepage": "https://github.com/cakeinpanic/aliexpress-api-sdk#readme",
   "license": "MIT",
   "engines": {
     "node": ">=12.0.0"
