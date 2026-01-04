@@ -1,0 +1,41 @@
+# Development files
+.git
+.github
+.gitignore
+.idea
+.vscode
+.editorconfig
+.eslintrc
+.eslintignore
+.prettierrc
+.prettierignore
+.travis.yml
+.gitlab-ci.yml
+.circleci
+
+# Test files
+test/
+tests/
+__tests__/
+coverage/
+.nyc_output/
+jest.config.js
+mocha.opts
+
+# Build files
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Examples and documentation
+examples/
+docs/
+*.md
+!README.md
+
+# Misc
+.DS_Store
+*.log
+*.swp
+*.bak

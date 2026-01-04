@@ -1,6 +1,24 @@
 # AliExpress API SDK for Node.js
 
-This is a Node.js port of the Python SDK for AliExpress API.
+[![npm version](https://img.shields.io/npm/v/aliexpress-api-sdk.svg)](https://www.npmjs.com/package/aliexpress-api-sdk)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A Node.js SDK for the AliExpress API, making it easy to integrate with AliExpress services in your JavaScript applications.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic Usage](#basic-usage)
+  - [File Upload](#file-upload)
+  - [Debug Mode](#debug-mode)
+- [API Reference](#api-reference)
+  - [IopClient](#iopclient)
+  - [IopRequest](#ioprequest)
+  - [IopResponse](#iopresponse)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 
@@ -17,7 +35,7 @@ const aliexpress = require('aliexpress-api-sdk');
 
 // Initialize client with your credentials
 const client = new aliexpress.IopClient(
-    'https://api-pre.aliexpress.com/sync',
+    'https://api-pre.aliexpress.com/sync', 
     'YOUR_APP_KEY',
     'YOUR_APP_SECRET'
 );
@@ -31,13 +49,13 @@ request.add_api_param('seller_address_query', 'pickup');
 async function callApi() {
     try {
         const response = await client.execute(request, 'YOUR_ACCESS_TOKEN');
-        
+
         // Check response status
         console.log('Response type:', response.type);
         console.log('Response code:', response.code);
         console.log('Response message:', response.message);
         console.log('Request ID:', response.request_id);
-        
+
         // Process response data
         console.log('Response body:', response.body);
     } catch (error) {
@@ -151,6 +169,118 @@ Properties:
 
 Methods:
 - `toString()`: Get string representation of the response
+
+## Examples
+
+### Getting Product Information
+
+```javascript
+const aliexpress = require('aliexpress-api-sdk');
+
+// Initialize client
+const client = new aliexpress.IopClient(
+    'https://api.aliexpress.com/rest',
+    'YOUR_APP_KEY',
+    'YOUR_APP_SECRET'
+);
+
+// Create a request to get product details
+const request = new aliexpress.IopRequest('aliexpress.ds.product.get');
+request.add_api_param('product_id', '1000001234567');
+
+// Execute the request
+async function getProductDetails() {
+    try {
+        const response = await client.execute(request, 'YOUR_ACCESS_TOKEN');
+
+        if (response.code === "0") {
+            console.log('Product details:', response.body.aliexpress_ds_product_get_response.result);
+        } else {
+            console.error('Error:', response.message);
+        }
+    } catch (error) {
+        console.error('API call failed:', error);
+    }
+}
+
+getProductDetails();
+```
+
+### Searching for Products
+
+```javascript
+const aliexpress = require('aliexpress-api-sdk');
+
+// Initialize client
+const client = new aliexpress.IopClient(
+    'https://api.aliexpress.com/rest',
+    'YOUR_APP_KEY',
+    'YOUR_APP_SECRET'
+);
+
+// Create a request to search for products
+const request = new aliexpress.IopRequest('aliexpress.ds.product.search');
+request.add_api_param('keywords', 'smartphone');
+request.add_api_param('page_size', 20);
+request.add_api_param('page_no', 1);
+
+// Execute the request
+async function searchProducts() {
+    try {
+        const response = await client.execute(request, 'YOUR_ACCESS_TOKEN');
+
+        if (response.code === "0") {
+            const products = response.body.aliexpress_ds_product_search_response.result.products;
+            console.log(`Found ${products.length} products`);
+            products.forEach(product => {
+                console.log(`- ${product.product_title} (${product.product_id})`);
+            });
+        } else {
+            console.error('Error:', response.message);
+        }
+    } catch (error) {
+        console.error('API call failed:', error);
+    }
+}
+
+searchProducts();
+```
+
+## Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Fork the repository** - Fork the project on GitHub.
+
+2. **Clone your fork** - Clone your fork to your local machine:
+   ```bash
+   git clone https://github.com/your-username/aliexpress-api-sdk.git
+   cd aliexpress-api-sdk
+   ```
+
+3. **Create a branch** - Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+4. **Make your changes** - Implement your feature or fix the bug and commit your changes:
+   ```bash
+   git commit -m "Add feature or fix bug"
+   ```
+
+5. **Push your changes** - Push your changes to your fork:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+6. **Create a Pull Request** - Go to the original repository and create a pull request from your branch.
+
+### Development Guidelines
+
+- Follow the existing code style
+- Add tests for new features
+- Update documentation for any changes
+- Make sure all tests pass before submitting a pull request
 
 ## License
 

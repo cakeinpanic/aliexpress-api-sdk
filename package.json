@@ -4,15 +4,37 @@
   "description": "Node.js SDK for AliExpress API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm test"
   },
   "keywords": [
     "aliexpress",
     "api",
-    "sdk"
+    "sdk",
+    "ecommerce",
+    "dropshipping"
   ],
-  "author": "",
+  "author": {
+    "name": "AliExpress SDK Team"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/aliexpress-api-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/aliexpress-api-sdk/issues"
+  },
+  "homepage": "https://github.com/username/aliexpress-api-sdk#readme",
   "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "axios": "^1.4.0",
     "crypto": "^1.0.1",
