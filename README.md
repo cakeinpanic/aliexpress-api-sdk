@@ -5,6 +5,8 @@
 
 A Node.js SDK for the AliExpress API, making it easy to integrate with AliExpress services in your JavaScript applications.
 
+> **DISCLAIMER**: This is a non-official Node.js implementation of the [official AliExpress SDK](https://openservice.aliexpress.com/doc/doc.htm?nodeId=27493&docId=118729#/?docId=1371). It replicates the logic and functionality of the official SDK but is maintained independently. For official support, please refer to the [AliExpress Open Platform](https://openservice.aliexpress.com/).
+
 ## Table of Contents
 
 - [Installation](#installation)
