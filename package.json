@@ -12,7 +12,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "npm test"
+    "build:cjs-to-esm": "node scripts/convert.js index.js index.mjs && node scripts/convert.js lib/base.js lib/base.mjs",
+    "build:esm-to-cjs": "node scripts/convert.js index.mjs index.js && node scripts/convert.js lib/base.mjs lib/base.js",
+    "build": "npm run build:cjs-to-esm",
+    "prepublishOnly": "npm test && npm run build"
   },
   "keywords": [
     "aliexpress",
@@ -40,6 +43,7 @@
     "index.js",
     "index.mjs",
     "lib/",
+    "scripts/",
     "README.md",
     "LICENSE"
   ],
