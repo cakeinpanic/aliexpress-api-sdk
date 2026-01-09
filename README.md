@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/aliexpress-api-sdk.svg)](https://www.npmjs.com/package/aliexpress-api-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Node.js SDK for the AliExpress API, making it easy to integrate with AliExpress services in your JavaScript applications. Supports both CommonJS and ESM (ECMAScript Modules).
+A Node.js SDK for the AliExpress API, making it easy to integrate with AliExpress services in your JavaScript applications. Supports both CommonJS and ESM (ECMAScript Modules), with full TypeScript type definitions.
 
 > **DISCLAIMER**: This is a non-official Node.js implementation of the [official AliExpress SDK](https://openservice.aliexpress.com/doc/doc.htm?nodeId=27493&docId=118729#/?docId=1371). It replicates the logic and functionality of the official SDK but is maintained independently. For official support, please refer to the [AliExpress Open Platform](https://openservice.aliexpress.com/).
 
@@ -12,6 +12,7 @@ A Node.js SDK for the AliExpress API, making it easy to integrate with AliExpres
 - [Installation](#installation)
 - [Usage](#usage)
   - [Basic Usage](#basic-usage)
+  - [TypeScript Usage](#typescript-usage)
   - [File Upload](#file-upload)
   - [Debug Mode](#debug-mode)
 - [API Reference](#api-reference)

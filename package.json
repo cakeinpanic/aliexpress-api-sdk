@@ -1,13 +1,15 @@
 {
   "name": "aliexpress-api-sdk",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Node.js SDK for AliExpress API",
   "main": "index.js",
   "module": "index.mjs",
+  "types": "index.d.ts",
   "exports": {
     ".": {
       "import": "./index.mjs",
-      "require": "./index.js"
+      "require": "./index.js",
+      "types": "./index.d.ts"
     }
   },
   "scripts": {
@@ -42,6 +44,7 @@
   "files": [
     "index.js",
     "index.mjs",
+    "index.d.ts",
     "lib/",
     "scripts/",
     "README.md",
