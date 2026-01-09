@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/aliexpress-api-sdk.svg)](https://www.npmjs.com/package/aliexpress-api-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Node.js SDK for the AliExpress API, making it easy to integrate with AliExpress services in your JavaScript applications.
+A Node.js SDK for the AliExpress API, making it easy to integrate with AliExpress services in your JavaScript applications. Supports both CommonJS and ESM (ECMAScript Modules).
 
 > **DISCLAIMER**: This is a non-official Node.js implementation of the [official AliExpress SDK](https://openservice.aliexpress.com/doc/doc.htm?nodeId=27493&docId=118729#/?docId=1371). It replicates the logic and functionality of the official SDK but is maintained independently. For official support, please refer to the [AliExpress Open Platform](https://openservice.aliexpress.com/).
 
@@ -32,6 +32,8 @@ npm install aliexpress-api-sdk
 
 ### Basic Usage
 
+#### CommonJS
+
 ```javascript
 const aliexpress = require('aliexpress-api-sdk');
 
@@ -44,6 +46,44 @@ const client = new aliexpress.IopClient(
 
 // Create a request
 const request = new aliexpress.IopRequest('aliexpress.logistics.redefining.getlogisticsselleraddresses', 'POST');
+request.set_simplify();
+request.add_api_param('seller_address_query', 'pickup');
+
+// Execute the request
+async function callApi() {
+    try {
+        const response = await client.execute(request, 'YOUR_ACCESS_TOKEN');
+
+        // Check response status
+        console.log('Response type:', response.type);
+        console.log('Response code:', response.code);
+        console.log('Response message:', response.message);
+        console.log('Request ID:', response.request_id);
+
+        // Process response data
+        console.log('Response body:', response.body);
+    } catch (error) {
+        console.error('API call failed:', error);
+    }
+}
+
+callApi();
+```
+
+#### ESM (ECMAScript Modules)
+
+```javascript
+import { IopClient, IopRequest } from 'aliexpress-api-sdk';
+
+// Initialize client with your credentials
+const client = new IopClient(
+    'https://api-pre.aliexpress.com/sync', 
+    'YOUR_APP_KEY',
+    'YOUR_APP_SECRET'
+);
+
+// Create a request
+const request = new IopRequest('aliexpress.logistics.redefining.getlogisticsselleraddresses', 'POST');
 request.set_simplify();
 request.add_api_param('seller_address_query', 'pickup');
 

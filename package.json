@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "Node.js SDK for AliExpress API",
   "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "npm test"
@@ -31,6 +38,7 @@
   },
   "files": [
     "index.js",
+    "index.mjs",
     "lib/",
     "README.md",
     "LICENSE"
